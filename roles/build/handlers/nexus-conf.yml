@@ -1,0 +1,40 @@
+---
+
+- name: make nexus symlinks
+  sudo: yes
+  file: src=/opt/{{nexus_name}}/bin/nexus dest=/etc/init.d/nexus state=link owner=root group=root mode=0755
+
+- name: edit nexus script
+  sudo: yes
+  lineinfile: dest=/etc/init.d/nexus regexp='^NEXUS_HOME=".*?"' line='NEXUS_HOME="/opt/nexus-2.11.0-02/"\nPIDDIR="/opt/nexus-2.11.0-02/"\nRUN_AS_USER="{{nexus_user}}"' state=present
+
+- name: create /opt/sonatype/nexus/conf folder
+  sudo: yes
+  file: path=/opt/sonatype-work/nexus/conf/ state=directory owner=nexus group=nexus
+
+- name: copy nexus configuration file
+  sudo: yes
+  copy: src=nexus.xml dest=/opt/sonatype-work/nexus/conf/nexus.xml force=yes owner=nexus group=nexus
+
+- name: change nexus ownership
+  sudo: yes
+  file: path=/opt/{{nexus_name}} state=directory owner=nexus group=nexus recurse=yes follow=yes
+
+- name: change sonatype ownership
+  sudo: yes
+  file: path=/opt/sonatype-work state=directory owner=nexus group=nexus recurse=yes follow=yes
+
+- name: add nexus as a service on Ubuntu
+  sudo: yes
+  shell: update-rc.d nexus defaults
+
+- name: start nexus
+  sudo: yes
+  shell: service nexus start
+  # nexus is in /etc/init.d/ folder, if won't work then use /etc/init.d/nexus, now it will recognized as that.
+
+
+
+
+
+

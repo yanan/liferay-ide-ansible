@@ -1,0 +1,14 @@
+---
+# download then install java on windows
+
+- name: download jdk executable file
+  script: download_jdk.ps1
+  tags: download-java
+
+- name: install 32 bit java 7
+  script: install_java_32.ps1
+  tags: java32
+
+- name: install 64 bit java 7
+  script: install_java_64.ps1
+  tags: java64

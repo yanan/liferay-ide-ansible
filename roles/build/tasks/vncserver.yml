@@ -1,0 +1,12 @@
+---
+# install vnc4server
+
+- name: Install vnc4server
+  sudo: yes
+  apt: pkg=vnc4server state=present
+  when: ansible_distribution == 'Ubuntu'
+
+## sudo su jenkins
+## vncserver
+## enter password: vncserver
+## Ctrl+c

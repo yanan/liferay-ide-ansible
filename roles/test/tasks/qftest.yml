@@ -1,0 +1,87 @@
+---
+# download then install qftest on windows
+
+- name: Download qftest 3.5.7 zip file
+  win_get_url:
+    url: '{{download_qftest_url}}'
+    dest: '{{download_folder}}\qftest-4.0.4-p1.zip'
+
+- name: install qftest 4.0.4
+  script: install_qftest.ps1
+
+- name: set license file
+  win_get_url:
+    url: '{{download_base}}/qftest/license'
+    dest: 'C:\qfs\qftest\license'
+
+- name: download qftest plugins
+  win_get_url:
+    url: '{{download_base}}/qftest/plugins/com.liferay.registry.api.jar'
+    dest: 'C:\qfs\qftest\plugin\com.liferay.registry.api.jar'
+
+- name: download qftest plugins
+  win_get_url:
+    url: '{{download_base}}/qftest/plugins/commons-collections-3.2.1.jar'
+    dest: 'C:\qfs\qftest\plugin\commons-collections-3.2.1.jar'
+
+- name: download qftest plugins
+  win_get_url:
+    url: '{{download_base}}/qftest/plugins/commons-logging-1.1.1.jar'
+    dest: 'C:\qfs\qftest\plugin\commons-logging-1.1.1.jar'
+
+- name: download qftest plugins
+  win_get_url:
+    url: '{{download_base}}/qftest/plugins/http-builder-0.6.jar'
+    dest: 'C:\qfs\qftest\plugin\http-builder-0.6.jar'
+
+- name: download qftest plugins
+  win_get_url:
+    url: '{{download_base}}/qftest/plugins/httpclient-4.2.1.jar'
+    dest: 'C:\qfs\qftest\plugin\httpclient-4.2.1.jar'
+
+- name: download qftest plugins
+  win_get_url:
+    url: '{{download_base}}/qftest/plugins/httpcore-4.2.1.jar'
+    dest: 'C:\qfs\qftest\plugin\httpcore-4.2.1.jar'
+
+- name: download qftest plugins
+  win_get_url:
+    url: '{{download_base}}/qftest/plugins/json-lib-2.3-jdk15.jar'
+    dest: 'C:\qfs\qftest\plugin\json-lib-2.3-jdk15.jar'
+
+- name: download qftest plugins
+  win_get_url:
+    url: '{{download_base}}/qftest/plugins/nekohtml-1.9.6.jar'
+    dest: 'C:\qfs\qftest\plugin\nekohtml-1.9.6.jar'
+
+- name: download qftest plugins
+  win_get_url:
+    url: '{{download_base}}/qftest/plugins/persistence.jar'
+    dest: 'C:\qfs\qftest\plugin\persistence.jar'
+
+- name: download qftest plugins
+  win_get_url:
+    url: '{{download_base}}/qftest/plugins/portal-service.jar'
+    dest: 'C:\qfs\qftest\plugin\portal-service.jar'
+
+- name: download qftest plugins
+  win_get_url:
+    url: '{{download_base}}/qftest/plugins/portlet.jar'
+    dest: 'C:\qfs\qftest\plugin\portlet.jar'
+
+- name: download qftest plugins
+  win_get_url:
+    url: '{{download_base}}/qftest/plugins/resolver.jar'
+    dest: 'C:\qfs\qftest\plugin\resolver.jar'
+
+- name: download qftest plugins
+  win_get_url:
+    url: '{{download_base}}/qftest/plugins/xercesImpl.jar'
+    dest: 'C:\qfs\qftest\plugin\xercesImpl.jar'
+
+- name: download qftest plugins
+  win_get_url:
+    url: '{{download_base}}/qftest/plugins/xml-resolver-1.2.jar'
+    dest: 'C:\qfs\qftest\plugin\xml-resolver-1.2.jar'
+
+

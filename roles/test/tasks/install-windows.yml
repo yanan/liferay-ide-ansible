@@ -1,0 +1,29 @@
+---
+- hosts: windows
+
+  tasks:
+ 
+
+
+
+
+
+
+##  - name: create .m2 folder and copy setting.xml file
+
+
+
+
+
+
+
+
+
+
+
+
+  - name: copy from ansible control machine to windows
+    script: /home/liferay/ansible/conf/copy_to_windows.ps1
+
+ 
+

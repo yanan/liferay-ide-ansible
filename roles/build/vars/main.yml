@@ -1,0 +1,37 @@
+---
+
+dest_folder: /tmp
+home_dir: /home/build
+
+ant_download: http://mirror.ox.ac.uk/sites/rsync.apache.org/ant/binaries/apache-ant-1.9.4-bin.tar.gz
+ant_name: apache-ant-1.9.4
+ant_archive: "{{ant_name}}-bin.tar.gz"
+
+maven_download: http://mirrors.cnnic.cn/apache/maven/maven-3/3.2.5/binaries/apache-maven-3.2.5-bin.tar.gz
+maven_name: apache-maven-3.2.5
+maven_archive: "{{maven_name}}-bin.tar.gz"
+
+nexus_download: http://download.sonatype.com/nexus/oss/nexus-2.11.0-02-bundle.tar.gz
+nexus_name: nexus-2.11.0-02
+nexus_archive: "{{nexus_name}}-bundle.tar.gz"
+nexus_user: nexus
+
+jenkins_home: /var/lib/jenkins
+jenkins_git_download: http://mirror.bit.edu.cn/jenkins/plugins/git/2.3.1/git.hpi
+jenkins_scm_api_download: http://mirror.bit.edu.cn/jenkins/plugins/scm-api/0.2/scm-api.hpi
+jenkins_github_download: http://mirror.bit.edu.cn/jenkins/plugins/github/1.10/github.hpi
+jenkins_git_client_download: http://mirror.bit.edu.cn/jenkins/plugins/git-client/1.12.0/git-client.hpi
+jenkins_github_api_download: http://mirror.bit.edu.cn/jenkins/plugins/github-api/1.59/github-api.hpi
+jenkins_build_with_parameters_download: http://mirror.bit.edu.cn/jenkins/plugins/build-with-parameters/1.3/build-with-parameters.hpi
+jenkins_gradle_download: http://mirror.bit.edu.cn/jenkins/plugins/gradle/1.24/gradle.hpi
+jenkins_maven_download: http://mirror.bit.edu.cn/jenkins/plugins/maven-plugin/2.8/maven-plugin.hpi
+jenkins_token_macro_download: http://mirror.bit.edu.cn/jenkins/plugins/token-macro/1.5.1/token-macro.hpi
+jenkins_parameterized_remote_trigger_download: http://mirror.bit.edu.cn/jenkins/plugins/Parameterized-Remote-Trigger/2.1.3/Parameterized-Remote-Trigger.hpi
+jenkins_Xvnc_download: http://mirror.bit.edu.cn/jenkins/plugins/xvnc/1.21/xvnc.hpi
+jdk_32_download: http://build-1:9090/userContent/jdk-7u25-linux-i586.tar.gz
+jdk_32_archive: jdk-7u25-linux-i586.tar.gz
+jenkins_sonar_download: http://mirror.bit.edu.cn/jenkins/plugins/sonar/2.2.1/sonar.hpi
+
+sonar_download_url: https://sonarsource.bintray.com/Distribution/sonarqube/sonarqube-5.2.zip
+sonar_name: sonarqube-5.2
+sonar_archive: sonarqube-5.2.zip

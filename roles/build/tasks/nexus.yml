@@ -1,0 +1,39 @@
+# Ansible playbook to install nexus as a service and create nexus user
+---
+  
+- name: Download nexus
+  get_url: url={{nexus_download}} dest={{dest_folder}}/{{nexus_archive}}
+
+- name: add nexus user
+  sudo: yes
+  user: name={{nexus_user}}
+  
+- name: Untar Nexus
+  sudo: yes
+  unarchive: copy=no follow=yes src={{dest_folder}}/{{nexus_archive}} dest=/opt/ owner=nexus group=nexus 
+  notify:
+    - create /opt/sonatype/nexus/conf folder    
+    - make nexus symlinks
+    - edit nexus script
+    - copy nexus configuration file
+    - change nexus ownership
+    - change sonatype ownership
+    - add nexus as a service on Ubuntu
+    - start nexus
+
+- name: add nexus home
+  sudo: yes
+  lineinfile: dest=/etc/profile regexp='^#?\s*export NEXUS_HOME=(.*)$' line='export NEXUS_HOME=/#opt/{{nexus_name}}' state=present
+
+- name: add nexus system environment
+  sudo: yes  
+  lineinfile: dest=/etc/profile regexp='^#?\s*export PATH=(.*)NEXUS_HOME(.*)$' line="export PATH=$PATH:$NEXUS_HOME/bin" state=present
+
+
+
+
+
+
+
+
+

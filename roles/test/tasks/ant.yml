@@ -1,0 +1,10 @@
+---
+# download then install ant on Windows
+
+- name: Download apache ant
+  win_get_url:
+    url: '{{download_ant_url}}'
+    dest: '{{download_folder}}\apache-ant-1.9.4-bin.zip'
+
+- name: install apache ant
+  script: install_ant.ps1

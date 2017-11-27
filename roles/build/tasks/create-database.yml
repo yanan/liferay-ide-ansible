@@ -1,0 +1,26 @@
+---
+# Ansible playbook to create mysql database on linux
+
+- name: add database named sonar
+  sudo: yes
+  mysql_db:
+    login_user: root
+    login_password: root
+    name: sonar
+    encoding: utf8
+    collation: utf8_general_ci
+
+- name: add user sonar
+  sudo: yes
+  mysql_user:
+    name: sonar
+    password: sonar
+    priv: "*.*:ALL,GRANT"
+    login_user: root
+    login_password: root
+    host: "{{item}}"
+  with_items:
+    - "{{ host_name }}"
+    - 127.0.0.1
+    - ::1
+    - localhost

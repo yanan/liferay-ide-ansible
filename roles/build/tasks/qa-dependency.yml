@@ -1,0 +1,7 @@
+---
+
+- name: copy qa dependencies
+  sudo: true
+  copy: src='dependency/qa/' dest='{{jenkins_home}}/userContent/' owner=jenkins group=jenkins force=yes
+  tags: qa-dependency
+

@@ -1,0 +1,67 @@
+# Ansible playbook to download jenkins plugins
+---
+
+- name: new jenkins/plugins folder
+  sudo: yes
+  file: path={{jenkins_home}}/plugins state=directory owner=jenkins group=jenkins mode=755
+  tags: jenkins-plugins
+
+- name: install scm-api plugin on jenkins
+  sudo: yes
+  get_url: url={{jenkins_scm_api_download}} dest={{jenkins_home}}/plugins/
+  tags: jenkins-plugins
+  
+- name: install git on jenkins
+  sudo: yes
+  get_url: url={{jenkins_git_download}} dest={{jenkins_home}}/plugins/
+  tags: jenkins-plugins
+  
+- name: install github plugin on jenkins
+  sudo: yes
+  get_url: url={{jenkins_github_download}} dest={{jenkins_home}}/plugins/
+  tags: jenkins-plugins
+  
+- name: install build-with-parameters plugin on jenkins
+  sudo: yes
+  get_url: url={{jenkins_build_with_parameters_download}} dest={{jenkins_home}}/plugins/
+  tags: jenkins-plugins
+  
+- name: install gradle plugin on jenkins
+  sudo: yes
+  get_url: url={{jenkins_gradle_download}} dest={{jenkins_home}}/plugins/
+  tags: jenkins-plugins
+  
+- name: install github-api on jenkins
+  sudo: yes
+  get_url: url={{jenkins_github_api_download}} dest={{jenkins_home}}/plugins/
+  tags: jenkins-plugins
+  
+- name: install git-client on jenkins
+  sudo: yes
+  get_url: url={{jenkins_git_client_download}} dest={{jenkins_home}}/plugins/
+  tags: jenkins-plugins
+  
+- name: install token-macro plugin on jenkins
+  sudo: yes
+  get_url: url={{jenkins_token_macro_download}} dest={{jenkins_home}}/plugins/
+  tags: jenkins-plugins
+  
+- name: install maven-plguin on jenkins
+  sudo: yes
+  get_url: url={{jenkins_maven_download}} dest={{jenkins_home}}/plugins/
+  tags: jenkins-plugins
+  
+- name: install parameterizaed remote trigger plugin
+  sudo: yes
+  get_url: url={{jenkins_parameterized_remote_trigger_download}} dest={{jenkins_home}}/plugins/
+  tags: jenkins-plugins
+
+- name: install xvnc-plugin on jenkins
+  sudo: yes
+  get_url: url={{jenkins_Xvnc_download}} dest={{jenkins_home}}/plugins/
+  tags: jenkins-plugins
+
+- name: install sonar on jenkins
+  sudo: yes
+  get_url: url={{jenkins_sonar_download}} dest={{jenkins_home}}/plugins/
+  tags: jenkins-plugins

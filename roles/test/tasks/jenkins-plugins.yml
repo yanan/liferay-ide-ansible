@@ -1,0 +1,80 @@
+---
+# download jenkins plugins on windows
+
+- name: download jenkins plugins
+  win_get_url:
+    url: '{{download_jenkins_git}}'
+    dest: '{{jenkins_home}}/plugins/git.hpi' 
+
+- name: download jenkins plugins
+  win_get_url:
+    url: '{{download_jenkins_scm_api}}'
+    dest: '{{jenkins_home}}/plugins/scm-api.hpi' 
+
+- name: download jenkins plugins
+  win_get_url:
+    url: '{{download_jenkins_github}}'
+    dest: '{{jenkins_home}}/plugins/github.hpi' 
+
+- name: download jenkins plugins
+  win_get_url:
+    url: '{{download_jenkins_git_client}}'
+    dest: '{{jenkins_home}}/plugins/git-client.hpi' 
+
+- name: download jenkins plugins
+  win_get_url:
+    url: '{{download_jenkins_github_api}}'
+    dest: '{{jenkins_home}}/plugins/github-api.hpi' 
+
+- name: download jenkins plugins
+  win_get_url:
+    url: '{{download_jenkins_build_with_parameters}}'
+    dest: '{{jenkins_home}}/plugins/build-with-parameters.hpi' 
+
+- name: download jenkins plugins
+  win_get_url:
+    url: '{{download_jenkins_gradle}}'
+    dest: '{{jenkins_home}}/plugins/gradle.hpi' 
+
+- name: download jenkins plugins
+  win_get_url:
+    url: '{{download_jenkins_maven}}'
+    dest: '{{jenkins_home}}/plugins/maven-plugin.hpi' 
+
+- name: download jenkins plugins
+  win_get_url:
+    url: '{{download_jenkins_token_macro}}'
+    dest: '{{jenkins_home}}/plugins/token-macro.hpi' 
+
+- name: download jenkins plugins
+  win_get_url:
+    url: '{{download_jenkins_build_flow}}'
+    dest: '{{jenkins_home}}/plugins/build-flow-plugin.hpi' 
+
+- name: download jenkins plugins
+  win_get_url:
+    url: '{{download_jenkins_build_timeout}}'
+    dest: '{{jenkins_home}}/plugins/build-timeout.hpi' 
+
+- name: download jenkins plugins
+  win_get_url:
+    url: '{{download_jenkins_buildgraph_view}}'
+    dest: '{{jenkins_home}}/plugins/buildgraph-view.hpi' 
+
+- name: download jenkins plugins
+  win_get_url:
+    url: '{{download_jenkins_htmlpublisher}}'
+    dest: '{{jenkins_home}}/plugins/htmlpublisher.hpi' 
+
+- name: download jenkins plugins
+  win_get_url:
+    url: '{{download_jenkins_job_dsl}}'
+    dest: '{{jenkins_home}}/plugins/Parameterized-Remote-Trigger.hpi' 
+
+- name: download jenkins plugins
+  win_get_url:
+    url: '{{download_jenkins_parameterized_remote_trigger}}'
+    dest: '{{jenkins_home}}/plugins/job-dsl.hpi' 
+
+#- name: start jenkins using jenkins.war
+#  script: start_jenkins.ps1

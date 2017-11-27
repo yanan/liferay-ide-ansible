@@ -1,0 +1,85 @@
+---
+- name: new /opt/jenkins/.m2 folder
+  sudo: true
+  file: path=/opt/jenkins/.m2 state=directory owner=jenkins group=jenkins recurse=yes
+  tags: ide-jenkins-conf
+
+- name: copy liferay bunldes files
+  sudo: true
+  copy: src='jenkins/liferay.bundles.dir/tests' dest='{{home_dir}}/resources/tests' owner=jenkins group=jenkins
+  tags: ide-jenkins-conf
+
+- name: copy private key to jenkins .ssh folder
+  sudo: true
+  copy: src='ssh/' dest='/opt/jenkins/.ssh/' owner=jenkins group=jenkins mode=0755
+  tags: ide-jenkins-conf
+
+- name: chmod authorized_keys
+  sudo: true
+  file: path=/opt/jenkins/.ssh/authorized_keys state=file owner=jenkins group=jenkins mode=0600
+  tags: ide-jenkins-conf
+
+- name: chmod id_rsa
+  sudo: true
+  file: path=/opt/jenkins/.ssh/id_rsa state=file owner=jenkins group=jenkins mode=0600
+  tags: ide-jenkins-conf
+
+- name: chmod id_rsa
+  sudo: true
+  file: path=/opt/jenkins/.ssh/id_rsa.pub state=file owner=jenkins group=jenkins mode=0644
+  tags: ide-jenkins-conf
+
+- name: chmod id_rsa
+  sudo: true
+  file: path=/opt/jenkins/.ssh/known_hosts state=file owner=jenkins group=jenkins mode=0644
+  tags: ide-jenkins-conf
+  
+- name: copy jenkins system configuration
+  sudo: true
+  copy: src='jenkins/system/' dest='/var/lib/jenkins/' owner=jenkins group=jenkins
+  tags: ide-jenkins-conf
+
+- name: change jenkins port to 9090
+  sudo: true
+  replace: dest=/etc/default/jenkins regexp='^HTTP_PORT=8080?' replace='HTTP_PORT=9090'
+  tags: ide-jenkins-conf
+
+- include: restart.yml tags=ide-jenkins-conf
+
+- name: create liferay-ide job
+  sudo: true
+  file: path={{jenkins_home}}/jobs/liferay-ide recurse=yes owner=jenkins group=jenkins mode=0755 state=directory
+  tags: ide-jenkins-conf
+
+- name: create liferay-ide-ee job and download dir
+  sudo: true
+  file: path={{jenkins_home}}/jobs/liferay-ide-ee/workspace/build/releng/com.liferay.studio.product-repository/download state=directory owner=jenkins group=jenkins recurse=yes mode=0755
+  tags: ide-jenkins-conf
+
+- name: configurate liferay-ide job
+  sudo: true
+  copy: src='jenkins/liferay-ide-config.xml' dest='{{jenkins_home}}/jobs/liferay-ide/config.xml' owner=jenkins group=jenkins mode=0644
+  tags: ide-jenkins-conf  
+
+- name: configurate liferay-ide-ee job
+  sudo: true
+  copy: src='jenkins/liferay-ide-ee-config.xml' dest='{{jenkins_home}}/jobs/liferay-ide-ee/config.xml' owner=jenkins mode=0644 group=jenkins
+  tags: ide-jenkins-conf
+
+- name: copy portal to download dir
+  sudo: true
+  copy: src='ee-portal' dest='{{jenkins_home}}/jobs/liferay-ide-ee/workspace/build/releng/com.liferay.studio.product-repository/download/'
+  tags: ide-jenkins-conf
+
+- name: set jenkins users
+  copy: src='jenkins/system/users' dest='{{jenkins_home}}/' owner=jenkins group=jenkins
+  tags: ide-jenkins-conf
+
+- name: fix ownership
+  sudo: true
+  file: "state=directory path={{jenkins_home}} owner=jenkins group=jenkins recurse=yes"
+  tags: ide-jenkins-conf
+
+- include: qa-dependency.yml tags=ide-jenkins-conf
+
+

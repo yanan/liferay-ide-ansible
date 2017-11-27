@@ -1,0 +1,106 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<hudson>
+  <disabledAdministrativeMonitors/>
+  <version>1.592</version>
+  <numExecutors>1</numExecutors>
+  <mode>NORMAL</mode>
+  <useSecurity>true</useSecurity>
+  <authorizationStrategy class="hudson.security.GlobalMatrixAuthorizationStrategy">
+    <permission>com.cloudbees.plugins.credentials.CredentialsProvider.Create:ashley.yuan</permission>
+    <permission>com.cloudbees.plugins.credentials.CredentialsProvider.Create:gregory.amerson</permission>
+    <permission>com.cloudbees.plugins.credentials.CredentialsProvider.Delete:ashley.yuan</permission>
+    <permission>com.cloudbees.plugins.credentials.CredentialsProvider.Delete:gregory.amerson</permission>
+    <permission>com.cloudbees.plugins.credentials.CredentialsProvider.ManageDomains:ashley.yuan</permission>
+    <permission>com.cloudbees.plugins.credentials.CredentialsProvider.ManageDomains:gregory.amerson</permission>
+    <permission>com.cloudbees.plugins.credentials.CredentialsProvider.Update:ashley.yuan</permission>
+    <permission>com.cloudbees.plugins.credentials.CredentialsProvider.Update:gregory.amerson</permission>
+    <permission>com.cloudbees.plugins.credentials.CredentialsProvider.View:ashley.yuan</permission>
+    <permission>com.cloudbees.plugins.credentials.CredentialsProvider.View:gregory.amerson</permission>
+    <permission>hudson.model.Computer.Build:ashley.yuan</permission>
+    <permission>hudson.model.Computer.Build:gregory.amerson</permission>
+    <permission>hudson.model.Computer.Configure:ashley.yuan</permission>
+    <permission>hudson.model.Computer.Configure:gregory.amerson</permission>
+    <permission>hudson.model.Computer.Connect:ashley.yuan</permission>
+    <permission>hudson.model.Computer.Connect:gregory.amerson</permission>
+    <permission>hudson.model.Computer.Create:ashley.yuan</permission>
+    <permission>hudson.model.Computer.Create:gregory.amerson</permission>
+    <permission>hudson.model.Computer.Delete:ashley.yuan</permission>
+    <permission>hudson.model.Computer.Delete:gregory.amerson</permission>
+    <permission>hudson.model.Computer.Disconnect:ashley.yuan</permission>
+    <permission>hudson.model.Computer.Disconnect:gregory.amerson</permission>
+    <permission>hudson.model.Hudson.Administer:ashley.yuan</permission>
+    <permission>hudson.model.Hudson.Administer:gregory.amerson</permission>
+    <permission>hudson.model.Hudson.ConfigureUpdateCenter:ashley.yuan</permission>
+    <permission>hudson.model.Hudson.ConfigureUpdateCenter:gregory.amerson</permission>
+    <permission>hudson.model.Hudson.Read:anonymous</permission>
+    <permission>hudson.model.Hudson.Read:ashley.yuan</permission>
+    <permission>hudson.model.Hudson.Read:gregory.amerson</permission>
+    <permission>hudson.model.Hudson.RunScripts:ashley.yuan</permission>
+    <permission>hudson.model.Hudson.RunScripts:gregory.amerson</permission>
+    <permission>hudson.model.Hudson.UploadPlugins:ashley.yuan</permission>
+    <permission>hudson.model.Hudson.UploadPlugins:gregory.amerson</permission>
+    <permission>hudson.model.Item.Build:anonymous</permission>
+    <permission>hudson.model.Item.Build:ashley.yuan</permission>
+    <permission>hudson.model.Item.Build:gregory.amerson</permission>
+    <permission>hudson.model.Item.Cancel:ashley.yuan</permission>
+    <permission>hudson.model.Item.Cancel:gregory.amerson</permission>
+    <permission>hudson.model.Item.Configure:ashley.yuan</permission>
+    <permission>hudson.model.Item.Configure:gregory.amerson</permission>
+    <permission>hudson.model.Item.Create:ashley.yuan</permission>
+    <permission>hudson.model.Item.Create:gregory.amerson</permission>
+    <permission>hudson.model.Item.Delete:ashley.yuan</permission>
+    <permission>hudson.model.Item.Delete:gregory.amerson</permission>
+    <permission>hudson.model.Item.Discover:ashley.yuan</permission>
+    <permission>hudson.model.Item.Discover:gregory.amerson</permission>
+    <permission>hudson.model.Item.Read:anonymous</permission>
+    <permission>hudson.model.Item.Read:ashley.yuan</permission>
+    <permission>hudson.model.Item.Read:gregory.amerson</permission>
+    <permission>hudson.model.Item.Workspace:anonymous</permission>
+    <permission>hudson.model.Item.Workspace:ashley.yuan</permission>
+    <permission>hudson.model.Item.Workspace:gregory.amerson</permission>
+    <permission>hudson.model.Run.Delete:ashley.yuan</permission>
+    <permission>hudson.model.Run.Delete:gregory.amerson</permission>
+    <permission>hudson.model.Run.Update:ashley.yuan</permission>
+    <permission>hudson.model.Run.Update:gregory.amerson</permission>
+    <permission>hudson.model.View.Configure:ashley.yuan</permission>
+    <permission>hudson.model.View.Configure:gregory.amerson</permission>
+    <permission>hudson.model.View.Create:ashley.yuan</permission>
+    <permission>hudson.model.View.Create:gregory.amerson</permission>
+    <permission>hudson.model.View.Delete:ashley.yuan</permission>
+    <permission>hudson.model.View.Delete:gregory.amerson</permission>
+    <permission>hudson.model.View.Read:ashley.yuan</permission>
+    <permission>hudson.model.View.Read:gregory.amerson</permission>
+    <permission>hudson.scm.SCM.Tag:ashley.yuan</permission>
+    <permission>hudson.scm.SCM.Tag:gregory.amerson</permission>
+  </authorizationStrategy>
+  <securityRealm class="hudson.security.HudsonPrivateSecurityRealm">
+    <disableSignup>false</disableSignup>
+    <enableCaptcha>false</enableCaptcha>
+  </securityRealm>
+  <disableRememberMe>false</disableRememberMe>
+  <projectNamingStrategy class="jenkins.model.ProjectNamingStrategy$DefaultProjectNamingStrategy"/>
+  <workspaceDir>${ITEM_ROOTDIR}/workspace</workspaceDir>
+  <buildsDir>${ITEM_ROOTDIR}/builds</buildsDir>
+  <markupFormatter class="hudson.markup.EscapedMarkupFormatter"/>
+  <jdks/>
+  <viewsTabBar class="hudson.views.DefaultViewsTabBar"/>
+  <myViewsTabBar class="hudson.views.DefaultMyViewsTabBar"/>
+  <clouds/>
+  <slaves/>
+  <quietPeriod>10</quietPeriod>
+  <scmCheckoutRetryCount>0</scmCheckoutRetryCount>
+  <views>
+    <hudson.model.AllView>
+      <owner class="hudson" reference="../../.."/>
+      <name>All</name>
+      <filterExecutors>false</filterExecutors>
+      <filterQueue>false</filterQueue>
+      <properties class="hudson.model.View$PropertyList"/>
+    </hudson.model.AllView>
+  </views>
+  <primaryView>All</primaryView>
+  <slaveAgentPort>0</slaveAgentPort>
+  <label></label>
+  <nodeProperties/>
+  <globalNodeProperties/>
+</hudson>

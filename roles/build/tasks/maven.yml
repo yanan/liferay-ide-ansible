@@ -1,0 +1,22 @@
+# Ansible playbook to download and install maven
+--- 
+
+- name: download maven
+  get_url: url={{maven_download}} dest={{dest_folder}}/{{maven_archive}}
+
+- name: untar maven bundle
+  unarchive: copy=no follow=yes src={{dest_folder}}/{{maven_archive}} dest=/opt/
+  sudo: yes
+      
+- name: add maven home
+  sudo: yes
+  lineinfile: dest=/etc/profile regexp='^#?\s*export MAVEN_HOME=(.*)$' line='export MAVEN_HOME=/opt/{{maven_name}}' state=present
+
+- name: add maven system environment
+  sudo: yes
+  lineinfile: dest=/etc/profile regexp='^#?\s*export PATH=(.*)MAVEN_HOME(.*)$' line="export PATH=$PATH:$MAVEN_HOME/bin" state=present
+
+- name: create .m2 folder
+  file: path={{home_dir}}/.m2 state=directory mode=0775
+  notify: 
+    - copy maven settings

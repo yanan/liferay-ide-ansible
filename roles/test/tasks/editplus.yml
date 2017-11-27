@@ -1,0 +1,10 @@
+---
+
+- name: download editplus exe
+  script: download_editplus.ps1
+  tags: download_editplus
+
+- name: install editplus exe
+  script: install_editplus.ps1
+  tags: install-editplus
+

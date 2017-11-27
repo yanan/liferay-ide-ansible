@@ -1,0 +1,5 @@
+# Ansible playbook to copy config files for jenkins and nexus
+---
+
+- name: copy maven settings
+  copy: src=settings.xml dest={{home_dir}}/.m2/settins.xml force=yes

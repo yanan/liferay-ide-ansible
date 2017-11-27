@@ -1,0 +1,26 @@
+---
+# install openjdk and set system environment
+
+- name: Install OpenJDK
+  sudo: yes
+  apt: pkg=openjdk-7-jdk state=present
+  when: ansible_distribution == 'Ubuntu'
+
+# there is a job on jenkins need to run on linux32 OS
+- name: Install 32 bit libs
+  sudo: yes
+  apt: pkg=libc6-i386 state=present
+  when: ansible_distribution == 'Ubuntu'
+
+- name: Install 32 bit jni libs
+  sudo: yes
+  apt: pkg=libswt-gtk-3-jni:i386 state=present
+  when: ansible_distribution == 'Ubuntu' 
+
+- name: download jdk 32 bit
+  sudo: yes
+  get_url: url={{jdk_32_download}} dest={{dest_folder}}/
+
+- name: Untar jdk 32 bit
+  sudo: yes
+  unarchive: copy=no follow=yes src={{dest_folder}}/{{jdk_32_archive}} dest=/opt/

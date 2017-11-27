@@ -1,0 +1,15 @@
+# This is the ansible 'hosts' file.
+# It should live in /etc/ansible/hosts by default
+
+[buildservers]
+
+build-1
+build-example
+
+[windows]
+
+192.168.132.138 
+ide-qa-2-pc
+ide-qa-3-pc
+ide-qa-4-pc
+ide-qa-5-pc

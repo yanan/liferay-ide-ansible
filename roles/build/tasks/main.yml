@@ -1,0 +1,14 @@
+# Ansible playbook to install apps on linux
+---
+
+#- include: update.yml tags=update
+#- include: jdk.yml tags=java
+#- include: ant.yml tags=ant
+#- include: git.yml tags=git
+#- include: maven.yml tags=maven
+#- include: nexus.yml tags=nexus
+#- include: jenkins.yml tags=jenkins
+#- include: vncserver.yml tags=vnc
+#- include: qa-dependency.yml tags=qa-depens
+#- include: mysql.yml tags=mysql
+- include: sonar.yml tags=sonar

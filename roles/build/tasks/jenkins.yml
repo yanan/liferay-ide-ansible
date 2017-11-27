@@ -1,0 +1,30 @@
+# Ansible playbook to install jenkins as a deamon and change port
+---
+
+- name: Create jenkins user
+  sudo: true
+  user: name=jenkins comment="Jenkins slave user" home={{jenkins_home}} shell=/bin/bash
+
+- name: add jenkins key 
+  sudo: true
+  apt_key: url=https://jenkins-ci.org/debian/jenkins-ci.org.key state=present validate_certs=no
+
+- name: new file to add ppa
+  sudo: true
+  file: path=/etc/apt/sources.list.d/jenkins.list state=touch mode="0644"
+
+- name: add ppa
+  sudo: true
+  lineinfile: dest=/etc/apt/sources.list.d/jenkins.list regexp='^#?\s' line="deb http://pkg.jenkins-ci.org/debian binary/" state=present
+
+- name: update after add jenkins ppa
+  sudo: true
+  apt: update_cache=yes
+  
+- name: install jenkins
+  sudo: true
+  action: apt pkg=jenkins state=latest install_recommends=yes
+  
+- include: jenkins-plugins.yml
+
+- include: jenkins-conf.yml

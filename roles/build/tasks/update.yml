@@ -1,0 +1,34 @@
+---
+    
+- name: create ssh folder
+  file: path=.ssh state=directory owner={{user}} group={{user}} mode=0700
+  tags: git-ssh
+
+- name: copy ssh key to remote client
+  sudo: true
+  copy: src=ssh/ dest=.ssh/ owner={{user}} group={{user}} mode=0644 force=yes
+  tags: git-ssh
+
+- name: chmod id_rsa
+  sudo: true
+  file: path=.ssh/id_rsa state=file owner={{user}} group={{user}} mode=0744
+  tags: git-ssh
+
+- name: Install build-essential
+  sudo: true
+  apt: pkg=build-essential state=present
+  when: ansible_distribution == 'Ubuntu'
+    
+- name: Update all packages to the latest version
+  sudo: true
+  apt: upgrade=dist
+  when: ansible_distribution == 'Ubuntu'
+
+- name: install wget
+  sudo: true
+  apt: pkg=wget
+
+- name: Run "apt-get update" to update the source list
+  sudo: true
+  apt: update_cache=yes
+  when: ansible_distribution == 'Ubuntu'

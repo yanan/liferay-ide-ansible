@@ -1,0 +1,6 @@
+---
+
+- include: maven-settings.yml
+- include: nexus-conf.yml
+- include: postfix.yml
+

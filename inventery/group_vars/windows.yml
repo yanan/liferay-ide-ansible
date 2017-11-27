@@ -1,0 +1,5 @@
+ansible_ssh_user: Administrator
+ansible_ssh_pass: admin
+ansbile_ssh_port: 5986
+ansible_connection: winrm
+

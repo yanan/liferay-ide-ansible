@@ -1,0 +1,7 @@
+---
+# Ansible playbook to install git on linux
+
+- name: Install git
+  sudo: yes
+  action: apt pkg=git state=latest install_recommends=yes
+  when: ansible_distribution == 'Ubuntu'

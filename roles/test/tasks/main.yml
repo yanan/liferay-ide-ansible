@@ -1,0 +1,17 @@
+# Ansible playbook to install apps on linux
+---
+
+- include: notepad.yml tags=notepad
+- include: 7zip.yml tags=7zip
+- include: editplus.yml tags=editplus
+- include: firefox.yml tags=firefox
+- include: java.yml tags=java
+- include: ant.yml tags=ant
+- include: maven.yml tags=maven
+- include: qftest.yml tags=qftest
+- include: jenkins.yml tags=jenkins
+- include: git.yml tags=git
+
+
+- include: copy_test.yml tags=cp
+

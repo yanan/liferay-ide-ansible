@@ -1,0 +1,13 @@
+product = qftest
+name = 
+company = Liferay International, Dalian, China
+type = Commercial
+versions = -4.0
+expires = 
+concurrent = 3
+swt = 3
+runtime = 4
+rtswt = 4
+replaces = 
+key = 083F554DBFF44D41
+signature = 302C021426CC748ACDA0ACE6C200A51F6F0EB369FB39FCDD02147DDC96B4AB62D322DD45EA7DDDDCD6151AAAC6D4

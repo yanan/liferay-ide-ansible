@@ -1,0 +1,17 @@
+---
+# download then install git on windows
+
+#- name: Download git.exe to windows
+#  win_get_url:
+#    url: '{{download_git_url}}'
+    #url: 'https://github.com/msysgit/msysgit/releases/download/Git-1.9.5-preview20150319/Git-1.9.5-preview20150319.exe'
+#    dest: '{{download_folder}}\{{git_exe_name}}'
+
+- name: download git exe
+  script: download_git.ps1
+  tags: download_git
+
+- name: install git exe
+  script: install_git.ps1
+  tags: git
+

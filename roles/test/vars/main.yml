@@ -1,0 +1,43 @@
+---
+version: 7u72
+build: b18
+version_padded: 1.7.0_72
+dodrootca2: c:\\jdk\{{version_padded}}\\jre\\lib\\security\\dod.root-ca-2.pem
+cacerts: c:\\jdk{{version_padded}}\\jre\\lib\\security\\cacerts
+
+download_folder: c:\\Temp
+download_base: http://build-1:9090/userContent/windows
+
+download_7zip_url: http://jaist.dl.sourceforge.net/project/sevenzip/7-Zip/9.38/7z938-x64.msi
+download_notepad_url: https://www.hass.de/files/nodes/story/45/npp.6.7.4.installer.msi
+download_firefox_url: http://hicap.frontmotion.com.s3.amazonaws.com/Firefox/Firefox-35.0.1/Firefox-35.0.1-en-US.msi
+#download_qftest_url: http://www.qfs.de/pub/qftest/qftest-3.5.7.zip
+download_qftest_url: http://www.qfs.de/pub/qftest/qftest-4.0.4-p1.zip
+
+download_git_url: https://github.com/msysgit/msysgit/releases/download/Git-1.9.5-preview20150319/Git-1.9.5-preview20150319.exe 
+git_exe_name: Git-1.9.5-preview20150319.exe
+
+download_java_32bit_url:
+download_java_64bit_url: http://download.oracle.com/otn-pub/java/jdk/7u75-b13/jdk-7u75-windows-i586.exe
+download_ant_url: http://mirror.bit.edu.cn/apache//ant/binaries/apache-ant-1.9.4-bin.zip
+download_maven_url: http://apache.fayea.com/maven/maven-3/3.2.5/binaries/apache-maven-3.2.5-bin.zip
+download_editplus_url: https://www.editplus.com/ftp/epp380_64bit.exe
+
+jenkins_home: C:\Jenkins
+download_jenkins_url: http://mirror.xmission.com/jenkins/windows/jenkins-1.594.zip
+download_jenkins_git: http://mirror.bit.edu.cn/jenkins/plugins/git/2.3.1/git.hpi
+download_jenkins_scm_api: http://mirror.bit.edu.cn/jenkins/plugins/scm-api/0.2/scm-api.hpi
+download_jenkins_github: http://mirror.bit.edu.cn/jenkins/plugins/github/1.10/github.hpi
+download_jenkins_git_client: http://mirror.bit.edu.cn/jenkins/plugins/git-client/1.12.0/git-client.hpi
+download_jenkins_github_api: http://mirror.bit.edu.cn/jenkins/plugins/github-api/1.59/github-api.hpi
+download_jenkins_build_with_parameters: http://mirror.bit.edu.cn/jenkins/plugins/build-with-parameters/1.3/build-with-parameters.hpi
+download_jenkins_gradle: http://mirror.bit.edu.cn/jenkins/plugins/gradle/1.24/gradle.hpi
+download_jenkins_maven: http://mirror.bit.edu.cn/jenkins/plugins/maven-plugin/2.8/maven-plugin.hpi
+download_jenkins_token_macro: http://mirror.bit.edu.cn/jenkins/plugins/token-macro/1.5.1/token-macro.hpi
+download_jenkins_build_flow: http://mirror.bit.edu.cn/jenkins/plugins/build-flow-plugin/0.17/build-flow-plugin.hpi
+download_jenkins_build_timeout: http://mirror.bit.edu.cn/jenkins/plugins/build-timeout/1.14/build-timeout.hpi
+download_jenkins_buildgraph_view: http://mirror.bit.edu.cn/jenkins/plugins/buildgraph-view/1.1.1/buildgraph-view.hpi
+download_jenkins_htmlpublisher: http://mirror.bit.edu.cn/jenkins/plugins/htmlpublisher/1.3/htmlpublisher.hpi
+download_jenkins_job_dsl: http://mirror.bit.edu.cn/jenkins/plugins/job-dsl/1.27/job-dsl.hpi
+download_jenkins_parameterized_remote_trigger: http://mirror.bit.edu.cn/jenkins/plugins/Parameterized-Remote-Trigger/2.1.3/Parameterized-Remote-Trigger.hpi
+

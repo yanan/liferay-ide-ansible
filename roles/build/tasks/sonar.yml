@@ -1,0 +1,46 @@
+---
+# download sonar
+
+- name: Download Sonarqube 5.2
+  get_url: url={{sonar_download_url}} dest={{dest_folder}}/{{sonar_archive}}   
+  
+- name: Untar Sonarqube
+  unarchive: copy=no follow=yes src={{dest_folder}}/{{sonar_archive}} dest=/opt/
+
+- name: add sonar home
+  sudo: yes
+  lineinfile: dest=/etc/profile regexp='^#?\s*export SONAR_HOME=(.*)$' line='export SONAR_HOME=/opt/{{sonar_name}}' state=present
+  
+- name: add sonar system environment
+  sudo: yes
+  lineinfile: dest=/etc/profile regexp='^#?\s*export PATH=(.*)SONAR_HOME(.*)$' line="export PATH=$PATH:$SONAR_HOME/bin" state=present
+
+- name: set sonar.properties
+  sudo: yes
+  lineinfile: dest=/opt/"{{sonar_name}}"/conf/sonar.properties  line="sonar.jdbc.username=sonar" state=present
+
+- name: set sonar.properties
+  sudo: yes
+  lineinfile: dest=/opt/"{{sonar_name}}"/conf/sonar.properties  line="sonar.jdbc.password=sonar" state=present
+
+- name: set sonar.properties
+  sudo: yes
+  lineinfile: dest=/opt/"{{sonar_name}}"/conf/sonar.properties  line="sonar.jdbc.url=jdbc:mysql://localhost:3306/sonar?useUnicode=true&characterEncoding=utf8&rewriteBatchedStatements=true" state=present
+
+- name: set sonar.properties
+  sudo: yes
+  lineinfile: dest=/opt/"{{sonar_name}}"/conf/sonar.properties  line="sonar.jdbc.driverClassName=com.mysql.jdbc.Driver" state=present
+
+- shell: ./sonar.sh start>> sonar.txt
+  sudo: yes
+  args:
+    chdir: /opt/sonarqube-5.2/bin/linux-x86-64/
+    creates: sonar.txt
+
+- name: copy settings.xml to contain sonar config in settings.xml
+  sudo: yes
+  copy: src='settings.xml' dest='/home/build/.m2/' force=yes
+
+- name: copy settings.xml to contain sonar config in settings.xml
+  sudo: yes
+  copy: src='settings.xml' dest='/opt/jenkins/.m2/' force=yes

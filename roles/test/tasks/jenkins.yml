@@ -1,0 +1,36 @@
+---
+# download then install jenkins on windows
+
+- name: Download jenkins zip file
+  win_get_url:
+    url: '{{download_jenkins_url}}'
+    dest: '{{download_folder}}\jenkins-1.594.zip'
+- name: extract jenkins file
+  script: extract_jenkins.ps1
+- win_msi: path={{download_folder}}\\jenkins-1.594.msi
+- name: Restart Jenkins to make the plugin data available
+  win_service: name=jenkins state=restarted
+- name: stop jenkins service
+  win_service:
+    name: jenkins
+    state: stopped
+- name: move and create jenkins jobs
+  script: move_jenkins_location.ps1
+- include: jenkins-plugins.yml
+#- name: start jenkins
+#  script: start_jenkins.ps1
+
+- name: start jenkins
+  win_get_url:
+    url: '{{download_base}}/jenkins-slave.bat'
+    dest: 'C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Startup\jenkins-slave.bat'
+
+- name: restart computer
+  script: restart.ps1
+
+
+  
+
+
+
+
